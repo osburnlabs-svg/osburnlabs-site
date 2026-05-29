@@ -1,0 +1,516 @@
+/* ═══════════════════════════════════════════
+   OsburnLabs — main.css
+   Palette and typography locked to Shoot Your Way Out brand.
+   ═══════════════════════════════════════════ */
+
+/* ─── Custom properties ─── */
+:root {
+  --clr-bg:         #0a0d08;
+  --clr-surface:    #1a1d18;
+  --clr-gold:       #c9a356;
+  --clr-gold-dark:  #9a7c3f;
+  --clr-text:       #e8e5dc;
+  --clr-text-muted: #9a978c;
+  --clr-danger:     #cc3333;
+
+  --font-heading: 'VT323', monospace;
+  --font-body:    system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+
+  --container-max:    1200px;
+  --container-narrow: 720px;
+  --section-pad:      clamp(3rem, 6vw, 5rem);
+  --px:               clamp(1rem, 5vw, 2rem);
+}
+
+/* ─── Reset ─── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--clr-bg);
+  color: var(--clr-text);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: var(--clr-gold);
+  text-decoration: none;
+  transition: color 150ms;
+}
+
+a:hover {
+  color: var(--clr-gold-dark);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--clr-gold);
+  outline-offset: 3px;
+}
+
+/* ─── Typography ─── */
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--clr-gold);
+  letter-spacing: 0.03em;
+}
+
+/* ─── Layout ─── */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--px);
+}
+
+.container--narrow {
+  max-width: var(--container-narrow);
+}
+
+/* ─── Sticky nav ─── */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(10, 13, 8, 0.93);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--clr-gold-dark);
+}
+
+.nav-inner {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--px);
+  height: 3.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-logo {
+  font-family: var(--font-heading);
+  font-size: 1.6rem;
+  color: var(--clr-gold);
+  letter-spacing: 0.06em;
+}
+
+.nav-logo:hover {
+  color: var(--clr-text);
+}
+
+.nav-link {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  color: var(--clr-text-muted);
+  letter-spacing: 0.04em;
+}
+
+.nav-link:hover {
+  color: var(--clr-gold);
+}
+
+/* ─── Hero ─── */
+.hero {
+  padding-block: clamp(5rem, 12vw, 9rem);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle grain overlay — SVG noise filter, very faint */
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='250' height='250'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='250' height='250' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.hero-title {
+  font-family: var(--font-heading);
+  font-size: clamp(3.5rem, 14vw, 9rem);
+  color: var(--clr-gold);
+  letter-spacing: 0.07em;
+  position: relative;
+}
+
+.hero-tagline {
+  margin-top: 1rem;
+  font-size: clamp(0.95rem, 2.5vw, 1.2rem);
+  color: var(--clr-text-muted);
+  letter-spacing: 0.02em;
+  position: relative;
+}
+
+/* ─── Section dividers ─── */
+.divider {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--clr-gold-dark) 30%,
+    var(--clr-gold-dark) 70%,
+    transparent
+  );
+  margin-inline: var(--px);
+}
+
+/* ─── Sections ─── */
+.section {
+  padding-block: var(--section-pad);
+}
+
+.section--alt {
+  background-color: var(--clr-surface);
+}
+
+.section-heading {
+  font-size: clamp(2rem, 5vw, 3rem);
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+
+/* ─── Project grid ─── */
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .project-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .project-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ─── Project card ─── */
+.project-card {
+  background-color: var(--clr-surface);
+  border: 1px solid var(--clr-gold-dark);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  transition: border-color 200ms;
+}
+
+.project-card:hover {
+  border-color: var(--clr-gold);
+}
+
+/* Featured card (itch game — live) gets gold border and spans 2 cols on desktop */
+.project-card--featured {
+  border-color: var(--clr-gold);
+}
+
+@media (min-width: 1024px) {
+  .project-card--featured {
+    grid-column: span 2;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .project-card--featured .project-card-icon {
+    flex-shrink: 0;
+  }
+}
+
+.project-card-icon img {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+.project-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex: 1;
+}
+
+.project-card-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.project-tag {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  color: var(--clr-text-muted);
+  background-color: var(--clr-bg);
+  border: 1px solid var(--clr-gold-dark);
+  padding: 0.05em 0.55em;
+  letter-spacing: 0.04em;
+}
+
+.project-status {
+  font-family: var(--font-heading);
+  font-size: 0.95rem;
+  color: var(--clr-danger);
+  background-color: rgba(204, 51, 51, 0.08);
+  border: 1px solid var(--clr-danger);
+  padding: 0.05em 0.55em;
+  letter-spacing: 0.04em;
+}
+
+.project-card-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.project-card-tagline {
+  color: var(--clr-text);
+  font-style: italic;
+  font-size: 0.95rem;
+}
+
+.project-card-desc {
+  color: var(--clr-text-muted);
+  font-size: 0.9rem;
+}
+
+.project-card-actions {
+  margin-top: auto;
+  padding-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.project-coming-soon {
+  color: var(--clr-text-muted);
+  font-style: italic;
+  font-size: 0.85rem;
+}
+
+/* ─── Buttons ─── */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  padding: 0.45em 1.2em;
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  letter-spacing: 0.05em;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: background-color 150ms, color 150ms, border-color 150ms;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+/* Gold — primary CTA */
+.btn--gold {
+  background-color: var(--clr-gold);
+  color: var(--clr-bg);
+  border-color: var(--clr-gold);
+}
+
+.btn--gold:hover {
+  background-color: var(--clr-gold-dark);
+  border-color: var(--clr-gold-dark);
+  color: var(--clr-text);
+}
+
+/* Itch.io brand */
+.btn--itch {
+  background-color: #fa5c5c;
+  color: #fff;
+  border-color: #fa5c5c;
+}
+
+.btn--itch:hover {
+  background-color: #d94f4f;
+  border-color: #d94f4f;
+  color: #fff;
+}
+
+/* Outline — secondary */
+.btn--outline {
+  background-color: transparent;
+  color: var(--clr-gold);
+  border-color: var(--clr-gold-dark);
+}
+
+.btn--outline:hover {
+  border-color: var(--clr-gold);
+  background-color: rgba(201, 163, 86, 0.07);
+}
+
+/* ─── About ─── */
+.about-copy p {
+  font-size: 1.05rem;
+  color: var(--clr-text);
+  margin-bottom: 1.25rem;
+}
+
+.about-copy p:last-child {
+  margin-bottom: 0;
+}
+
+/* ─── Support ─── */
+.support-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 600px) {
+  .support-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.support-card {
+  background-color: var(--clr-surface);
+  border: 1px solid var(--clr-gold-dark);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.support-card--primary {
+  border-color: var(--clr-gold);
+}
+
+.support-card-heading {
+  font-size: 1.75rem;
+  color: var(--clr-gold);
+}
+
+.support-card-body {
+  color: var(--clr-text-muted);
+  font-size: 0.9rem;
+  flex: 1;
+  line-height: 1.6;
+}
+
+/* ─── Footer ─── */
+.footer {
+  padding-block: 2rem;
+  background-color: var(--clr-surface);
+}
+
+.footer-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  text-align: center;
+}
+
+@media (min-width: 600px) {
+  .footer-inner {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+.footer-contact a {
+  font-size: 0.9rem;
+  color: var(--clr-gold);
+}
+
+.footer-contact a:hover {
+  color: var(--clr-text);
+}
+
+.footer-nav a {
+  font-size: 0.85rem;
+  color: var(--clr-text-muted);
+}
+
+.footer-nav a:hover {
+  color: var(--clr-gold);
+}
+
+.footer-copy {
+  font-size: 0.8rem;
+  color: var(--clr-text-muted);
+}
+
+/* ─── Privacy page ─── */
+.privacy-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  margin-bottom: 0.5rem;
+}
+
+.privacy-updated {
+  color: var(--clr-text-muted);
+  font-size: 0.85rem;
+  margin-bottom: 2.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--clr-gold-dark);
+}
+
+.privacy-body {
+  color: var(--clr-text);
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.privacy-body h2,
+.privacy-body h3 {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.privacy-body h2 { font-size: clamp(1.4rem, 3vw, 2rem); }
+.privacy-body h3 { font-size: clamp(1.1rem, 2.5vw, 1.5rem); }
+
+.privacy-body p {
+  margin-bottom: 1rem;
+  color: var(--clr-text-muted);
+}
+
+.privacy-body ul,
+.privacy-body ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--clr-text-muted);
+}
+
+.privacy-body li {
+  margin-bottom: 0.4rem;
+}
+
+.privacy-body a {
+  color: var(--clr-gold);
+  text-decoration: underline;
+}
+
+.privacy-placeholder {
+  color: var(--clr-text-muted);
+  border: 1px dashed var(--clr-gold-dark);
+  padding: 2.5rem;
+  text-align: center;
+  font-style: italic;
+}

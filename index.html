@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OsburnLabs — Independent Software Studio</title>
+  <meta name="description" content="OsburnLabs is a small independent software studio building games and apps." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="OsburnLabs — Independent Software Studio" />
+  <meta property="og:description" content="Small indie studio building games and apps. Shoot Your Way Out — Tarkov-flavored mobile survivor-shooter." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://osburnlabs.com" />
+  <meta property="og:image" content="https://osburnlabs.com/assets/images/og-image.png" />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet" />
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/styles/main.css" />
+</head>
+<body>
+
+  <!-- ─── NAV ─── -->
+  <nav class="nav" aria-label="Site navigation">
+    <div class="nav-inner">
+      <a href="#hero" class="nav-logo" aria-label="OsburnLabs home">OSBURNLABS</a>
+      <a href="#about" class="nav-link">About</a>
+    </div>
+  </nav>
+
+  <!-- ─── HERO ─── -->
+  <section id="hero" class="hero">
+    <div class="container">
+      <!-- Swap this h1 for an <img> tag when the final logo is ready -->
+      <h1 class="hero-title">OSBURNLABS</h1>
+      <p class="hero-tagline">Independent software studio building games and apps.</p>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true"></div>
+
+  <!-- ─── PROJECTS ─── -->
+  <section id="projects" class="section">
+    <div class="container">
+      <h2 class="section-heading">Projects</h2>
+      <div class="project-grid">
+
+        <!-- Card A: Itch.io game (live — featured) -->
+        <article class="project-card project-card--featured">
+          <div class="project-card-icon">
+            <!-- Replace src with real asset when Mo provides itch-game-logo.png -->
+            <img src="/assets/images/itch-game-logo.png" alt="[Itch.io game] logo" width="96" height="96" />
+          </div>
+          <div class="project-card-body">
+            <div class="project-card-meta">
+              <span class="project-tag">Desktop</span>
+            </div>
+            <!-- Mo to fill in: game title, tagline, description, itch.io game-page URL -->
+            <h3 class="project-card-title">[Itch.io Game Name]</h3>
+            <p class="project-card-tagline">[One-line tagline — Mo to provide]</p>
+            <p class="project-card-desc">[2–3 sentence description — Mo to provide]</p>
+            <div class="project-card-actions">
+              <a href="#" class="btn btn--itch" aria-label="Play [Itch.io game] on itch.io">
+                Play on itch.io
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Card B: Shoot Your Way Out (in development) -->
+        <article class="project-card">
+          <div class="project-card-icon">
+            <!-- Replace src with sywo-logo.png when Mo provides it -->
+            <img src="/assets/images/sywo-logo.png" alt="Shoot Your Way Out logo" width="96" height="96" />
+          </div>
+          <div class="project-card-body">
+            <div class="project-card-meta">
+              <span class="project-tag">Mobile (iOS · Android)</span>
+              <span class="project-status">In development</span>
+            </div>
+            <h3 class="project-card-title">Shoot Your Way Out</h3>
+            <p class="project-card-tagline">Tarkov-flavored survivor-shooter for mobile.</p>
+            <p class="project-card-desc">A hardcore mobile shooter that brings the tension of extraction games to your pocket. Scavenge, fight, and survive — one run at a time.</p>
+            <div class="project-card-actions">
+              <p class="project-coming-soon">Coming soon to iOS and Android.</p>
+              <!-- Store badge slots — uncomment and add links once listings exist:
+              <a href="#" class="btn btn--store">
+                <img src="/assets/images/badge-appstore.svg" alt="Download on the App Store" />
+              </a>
+              <a href="#" class="btn btn--store">
+                <img src="/assets/images/badge-googleplay.svg" alt="Get it on Google Play" />
+              </a>
+              -->
+            </div>
+          </div>
+        </article>
+
+        <!-- Third card slot — add new project card here when ready, no grid rework needed -->
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true"></div>
+
+  <!-- ─── ABOUT ─── -->
+  <section id="about" class="section section--alt">
+    <div class="container container--narrow">
+      <h2 class="section-heading">About</h2>
+      <div class="about-copy">
+        <p>OsburnLabs is a small US-based studio — two brothers building games and apps on the side, because we wanted to make the kind of things we'd actually want to play.</p>
+        <p>We care about making honest software that respects the people using it: no accounts to create, no nagging, just games you can pick up and play. Shoot Your Way Out is the first thing we're putting real weight behind, with more on the way.</p>
+        <p>It's a hobby operation for now — funded out of pocket, with whatever the games earn going straight back into making more of them. If that's the kind of thing you like to root for, stick around.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true"></div>
+
+  <!-- ─── SUPPORT ─── -->
+  <section id="support" class="section">
+    <div class="container container--narrow">
+      <h2 class="section-heading">Support</h2>
+      <div class="support-grid">
+
+        <!-- Patreon (primary) — replace href with real Patreon URL -->
+        <div class="support-card support-card--primary">
+          <h3 class="support-card-heading">Patreon</h3>
+          <p class="support-card-body">If you'd like to help me keep making games like Shoot Your Way Out, support OsburnLabs on Patreon. Every bit goes straight back into development.</p>
+          <a href="#" class="btn btn--gold" aria-label="Support OsburnLabs on Patreon">Support on Patreon</a>
+        </div>
+
+        <!-- Itch.io profile (secondary) — replace href with real itch.io developer-profile URL -->
+        <div class="support-card">
+          <h3 class="support-card-heading">Itch.io</h3>
+          <p class="support-card-body">Follow OsburnLabs on itch.io for desktop releases and devlogs.</p>
+          <a href="#" class="btn btn--outline" aria-label="Follow OsburnLabs on itch.io">Follow on itch.io</a>
+        </div>
+
+        <!-- Future slot: Discord / mailing list — add card here when ready -->
+
+      </div>
+    </div>
+  </section>
+
+  <div class="divider" aria-hidden="true"></div>
+
+  <!-- ─── FOOTER ─── -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-inner">
+        <p class="footer-contact">
+          <a href="mailto:contact@osburnlabs.com">contact@osburnlabs.com</a>
+        </p>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="/privacy.html">Privacy Policy</a>
+        </nav>
+        <p class="footer-copy">&copy; 2026 OsburnLabs. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
