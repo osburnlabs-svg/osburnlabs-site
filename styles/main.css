@@ -210,10 +210,10 @@ h1, h2, h3, h4 {
 .project-card {
   background-color: var(--clr-surface);
   border: 1px solid var(--clr-gold-dark);
-  padding: 1.5rem;
   display: flex;
   flex-direction: column;
-  gap: 1.25rem;
+  gap: 0;
+  overflow: hidden;
   transition: border-color 200ms;
 }
 
@@ -221,7 +221,7 @@ h1, h2, h3, h4 {
   border-color: var(--clr-gold);
 }
 
-/* Featured card (itch game — live) gets gold border and spans 2 cols on desktop */
+/* Featured card gets gold border and spans 2 cols on desktop */
 .project-card--featured {
   border-color: var(--clr-gold);
 }
@@ -229,20 +229,37 @@ h1, h2, h3, h4 {
 @media (min-width: 1024px) {
   .project-card--featured {
     grid-column: span 2;
-    flex-direction: row;
-    align-items: flex-start;
-  }
-
-  .project-card--featured .project-card-icon {
-    flex-shrink: 0;
+    /* Image-on-top layout: always column, even at desktop widths */
   }
 }
 
-.project-card-icon img {
-  width: 72px;
-  height: 72px;
-  object-fit: contain;
-  image-rendering: pixelated;
+/* ─── Cover-image hero ─── */
+.project-card-hero {
+  width: 100%;
+  flex-shrink: 0;
+  /* Secondary card: shorter on mobile, fuller on desktop */
+  height: 160px;
+}
+
+.project-card--featured .project-card-hero {
+  /* Featured card: taller at every breakpoint to stay visually dominant */
+  height: 200px;
+}
+
+@media (min-width: 600px) {
+  .project-card-hero {
+    height: 185px;
+  }
+  .project-card--featured .project-card-hero {
+    height: 260px;
+  }
+}
+
+.project-card-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .project-card-body {
@@ -250,6 +267,7 @@ h1, h2, h3, h4 {
   flex-direction: column;
   gap: 0.6rem;
   flex: 1;
+  padding: 1.25rem 1.5rem 1.5rem;
 }
 
 .project-card-meta {
